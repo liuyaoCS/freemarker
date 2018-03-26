@@ -19,13 +19,16 @@ public class FmEngineCmd {
     public static void main(String[] args) throws IOException, TemplateException {
 
         if(args==null || args.length!=4){
-            System.out.println("args error!");
+            System.out.println("args error!!");
+            for(String arg:args){
+                System.out.print(arg);
+            }
             return;
         }
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_22);
 
-        File file = new File(Util.FTLPATH);
+        File file = new File(args[0]);
         configuration.setDirectoryForTemplateLoading(file);
 
         new FmEngineCmd().genJavaHook(configuration,args);

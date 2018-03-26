@@ -12,9 +12,16 @@ sourceSets{
 
 dependencies {
     compile fileTree(dir:'lib',include:'*.jar')
-    compile 'org.freemarker:freemarker:2.3.23'
+//    compile 'org.freemarker:freemarker:2.3.23'
 }
 
+task createJar (type:Exec) {
+    workingDir "$projectDir"
+    commandLine 'sh', 'create_jar.sh'
+    doFirst {
+        println 'gradle task create jar start ... '
+    }
+}
 
 task mclean(type:Delete){
     def gendir= file('src/com/ly/freemarker/gen')
