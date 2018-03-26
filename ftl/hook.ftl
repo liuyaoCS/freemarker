@@ -12,8 +12,8 @@ public class ${className} extends QarthMethod {
         className = "${packageName}.${className}";
         name = "${methodName}";
         parameterTypes = new Class[]{
-            <#list ptypes as ptype>
-                ${ptype}.class<#sep>,</#sep>
+            <#list pTypes as pType>
+                ${pType}.class<#sep>,</#sep>
             </#list>
         };
     }

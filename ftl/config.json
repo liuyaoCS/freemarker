@@ -1,0 +1,13 @@
+{
+  "packageName": "com.ly.freemarker.gen",
+  "className": "TestHook",
+  "methodName": "test",
+  "pTypes": [
+    "Long",
+    "String",
+    "Integer"
+  ],
+  "invokeOrigin": true,
+  "before_content": "before.method",
+  "after_content": "after.method"
+}

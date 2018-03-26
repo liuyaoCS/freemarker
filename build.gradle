@@ -25,6 +25,6 @@ build.dependsOn mclean
 run.dependsOn build
 
 // Define the main class for the application
-mainClassName = 'com.ly.freemarker.FmDemo'
+mainClassName = 'com.ly.freemarker.FmEngine'
 
 
