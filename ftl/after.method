@@ -1,0 +1,2 @@
+QarthLog.e("QarthLog", "-> before classname=" + thiz.toString());
+QarthLog.e("QarthLog", "-> before classname=" + thiz.toString());

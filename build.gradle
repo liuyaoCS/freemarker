@@ -12,9 +12,19 @@ sourceSets{
 
 dependencies {
     compile fileTree(dir:'lib',include:'*.jar')
-    compile 'com.google.guava:guava:22.0'
+    compile 'org.freemarker:freemarker:2.3.23'
 }
+
+
+task mclean(type:Delete){
+    def gendir= file('src/com/ly/freemarker/gen')
+    delete gendir
+    //delete rootProject.buildDir
+}
+build.dependsOn mclean
+run.dependsOn build
 
 // Define the main class for the application
 mainClassName = 'com.ly.freemarker.FmDemo'
+
 
