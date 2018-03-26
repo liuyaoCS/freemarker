@@ -1,4 +1,4 @@
-package cn.itcast.freemarker;
+package com.ly.freemarker;
 
 public class User {
     private String name;

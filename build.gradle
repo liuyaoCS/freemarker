@@ -16,5 +16,5 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'cn.itcast.freemarker.FmDemo'
+mainClassName = 'com.ly.freemarker.FmDemo'
 
