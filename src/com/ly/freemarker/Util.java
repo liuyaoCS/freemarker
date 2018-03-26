@@ -43,6 +43,30 @@ class Util {
         root.put("after_content", readMethod(FTLPATH+jsonObject.getString("after_content")));
         return root;
     }
+    static Map<String, Object> configData(String[] args){
+
+        Map<String, Object> root = new HashMap<String, Object>();
+
+        String jsonStr = Util.readFile(args[1]);
+        JSONObject jsonObject=JSONObject.fromObject(jsonStr);
+
+        root.put("packageName", jsonObject.getString("packageName"));
+        root.put("className", jsonObject.getString("className"));
+        root.put("methodName", jsonObject.getString("methodName"));
+
+        List<String> pTypes = new ArrayList<String>();
+        JSONArray jsonArray=jsonObject.getJSONArray("pTypes");
+        for(int i=0;i<jsonArray.size();i++){
+            pTypes.add((String) jsonArray.get(i));
+        }
+        root.put("pTypes", pTypes);
+
+        root.put("invokeOrigin",jsonObject.getBoolean("invokeOrigin"));
+
+        root.put("before_content", readMethod(args[2]));
+        root.put("after_content", readMethod(args[3]));
+        return root;
+    }
     private static String readFile(String Path){
         BufferedReader reader = null;
         String laststr = "";
