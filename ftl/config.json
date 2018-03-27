@@ -3,16 +3,34 @@
   "projectPackageName": "com.qihoo.msic.demopatch",
   "projectQarthName":"QarthEntry",
 
-  "hookFileName":"TestHook",
-  "packageName": "com.ly.freemarker",
-  "className": "FmDemo",
-  "methodName": "main",
-  "pTypes": [
-    "long",
-    "String",
-    "int"
-  ],
-  "invokeOrigin": true,
-  "before_content": "before.method",
-  "after_content": "after.method"
+  "datas":[
+    {
+      "hookFileName":"TestHook",
+      "packageName": "com.ly.freemarker",
+      "className": "FmDemo",
+      "methodName": "main",
+      "pTypes": [
+        "long",
+        "String",
+        "int"
+      ],
+      "invokeOrigin": true,
+      "before_content": "./ftl/before.method",
+      "after_content": "./ftl/after.method"
+    },{
+      "hookFileName":"TestHook1",
+      "packageName": "com.ly.freemarker",
+      "className": "FmDemo1",
+      "methodName": "main1",
+      "pTypes": [
+        "long",
+        "String",
+        "int"
+      ],
+      "invokeOrigin": false,
+      "before_content": "./ftl/before.method",
+      "after_content": "./ftl/after.method"
+    }
+  ]
+
 }

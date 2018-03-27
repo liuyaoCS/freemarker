@@ -30,22 +30,39 @@ class Util {
         root.put("projectPackageName", jsonObject.getString("projectPackageName"));
         root.put("projectQarthName", jsonObject.getString("projectQarthName"));
 
-        root.put("hookFileName", jsonObject.getString("hookFileName"));
-        root.put("packageName", jsonObject.getString("packageName"));
-        root.put("className", jsonObject.getString("className"));
-        root.put("methodName", jsonObject.getString("methodName"));
+        List<Map<String,Object>> datas=new ArrayList<>();
 
-        List<String> pTypes = new ArrayList<String>();
-        JSONArray jsonArray=jsonObject.getJSONArray("pTypes");
-        for(int i=0;i<jsonArray.size();i++){
-            pTypes.add((String) jsonArray.get(i));
+        JSONArray dataArr =jsonObject.getJSONArray("datas");
+        for(int i=0;i<dataArr.size();i++){
+            JSONObject jObject=dataArr.getJSONObject(i);
+
+            Map<String,Object> item=new HashMap<>();
+
+            item.put("projectSrcPath", root.get("projectSrcPath"));
+            item.put("projectPackageName", root.get("projectPackageName"));
+            item.put("projectQarthName", root.get("projectQarthName"));
+
+            item.put("hookFileName", jObject.getString("hookFileName"));
+            item.put("packageName", jObject.getString("packageName"));
+            item.put("className", jObject.getString("className"));
+            item.put("methodName", jObject.getString("methodName"));
+
+            List<String> pTypes = new ArrayList<String>();
+            JSONArray jsonArray=jObject.getJSONArray("pTypes");
+            for(int j=0;j<jsonArray.size();j++){
+                pTypes.add((String) jsonArray.get(j));
+            }
+            item.put("pTypes", pTypes);
+
+            item.put("invokeOrigin",jObject.getBoolean("invokeOrigin"));
+
+            item.put("before_content", readMethod(jObject.getString("before_content")));
+            item.put("after_content", readMethod(jObject.getString("after_content")));
+
+            datas.add(item);
         }
-        root.put("pTypes", pTypes);
+        root.put("datas",datas);
 
-        root.put("invokeOrigin",jsonObject.getBoolean("invokeOrigin"));
-
-        root.put("before_content", readMethod(FTLPATH+jsonObject.getString("before_content")));
-        root.put("after_content", readMethod(FTLPATH+jsonObject.getString("after_content")));
         return root;
     }
     static Map<String, Object> configData(String[] args){
@@ -59,22 +76,38 @@ class Util {
         root.put("projectPackageName", jsonObject.getString("projectPackageName"));
         root.put("projectQarthName", jsonObject.getString("projectQarthName"));
 
-        root.put("hookFileName", jsonObject.getString("hookFileName"));
-        root.put("packageName", jsonObject.getString("packageName"));
-        root.put("className", jsonObject.getString("className"));
-        root.put("methodName", jsonObject.getString("methodName"));
+        List<Map<String,Object>> datas=new ArrayList<>();
 
-        List<String> pTypes = new ArrayList<String>();
-        JSONArray jsonArray=jsonObject.getJSONArray("pTypes");
-        for(int i=0;i<jsonArray.size();i++){
-            pTypes.add((String) jsonArray.get(i));
+        JSONArray dataArr =jsonObject.getJSONArray("datas");
+        for(int i=0;i<dataArr.size();i++){
+            JSONObject jObject=dataArr.getJSONObject(i);
+            Map<String,Object> item=new HashMap<>();
+
+            item.put("projectSrcPath", root.get("projectSrcPath"));
+            item.put("projectPackageName", root.get("projectPackageName"));
+            item.put("projectQarthName", root.get("projectQarthName"));
+
+            item.put("hookFileName", jObject.getString("hookFileName"));
+            item.put("packageName", jObject.getString("packageName"));
+            item.put("className", jObject.getString("className"));
+            item.put("methodName", jObject.getString("methodName"));
+
+            List<String> pTypes = new ArrayList<String>();
+            JSONArray jsonArray=jObject.getJSONArray("pTypes");
+            for(int j=0;j<jsonArray.size();j++){
+                pTypes.add((String) jsonArray.get(j));
+            }
+            item.put("pTypes", pTypes);
+
+            item.put("invokeOrigin",jObject.getBoolean("invokeOrigin"));
+
+            item.put("before_content", readMethod(jObject.getString("before_content")));
+            item.put("after_content", readMethod(jObject.getString("after_content")));
+
+            datas.add(item);
         }
-        root.put("pTypes", pTypes);
+        root.put("datas",datas);
 
-        root.put("invokeOrigin",jsonObject.getBoolean("invokeOrigin"));
-
-        root.put("before_content", readMethod(args[2]));
-        root.put("after_content", readMethod(args[3]));
         return root;
     }
     private static String readFile(String Path){
