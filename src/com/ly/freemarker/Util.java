@@ -113,6 +113,9 @@ class Util {
         return laststr;
     }
     private static String readMethod(String src) {
+        if(src==null || src.equals("") || src.equals("null")){
+            return "";
+        }
         StringBuilder content=new StringBuilder();
         //content.append("\n");
         Scanner scanner= null;

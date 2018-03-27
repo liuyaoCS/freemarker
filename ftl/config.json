@@ -15,7 +15,7 @@
         "int"
       ],
       "invokeOrigin": true,
-      "before_content": "./ftl/before.method",
+      "before_content": null,
       "after_content": "./ftl/after.method"
     },{
       "hookFileName":"TestHook1",
@@ -29,7 +29,7 @@
       ],
       "invokeOrigin": false,
       "before_content": "./ftl/before.method",
-      "after_content": "./ftl/after.method"
+      "after_content": null
     }
   ]
 
