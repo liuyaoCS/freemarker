@@ -3,7 +3,9 @@ package ${projectPackageName};
 import com.qihoo.qarth.QarthLog;
 import com.qihoo.qarth.QarthMethod;
 import java.lang.reflect.Member;
-
+<#list imports as imp>
+import ${imp};
+</#list>
 
 public class ${hookFileName} extends QarthMethod {
 

@@ -7,6 +7,9 @@
     {
       "hookFileName":"TestHook",
       "packageName": "com.ly.freemarker",
+      "imports":[
+        "java.io.BufferedReader"
+      ],
       "className": "FmDemo",
       "methodName": "main",
       "pTypes": [
@@ -20,6 +23,8 @@
     },{
       "hookFileName":"TestHook1",
       "packageName": "com.ly.freemarker",
+      "imports":[
+      ],
       "className": "FmDemo1",
       "methodName": "main1",
       "pTypes": [

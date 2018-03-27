@@ -60,6 +60,13 @@ class Util {
             }
             item.put("pTypes", pTypes);
 
+            List<String> imports = new ArrayList<String>();
+            JSONArray importsArray=jObject.getJSONArray("imports");
+            for(int j=0;j<importsArray.size();j++){
+                imports.add((String) importsArray.get(j));
+            }
+            item.put("imports", imports);
+
             item.put("invokeOrigin",jObject.getBoolean("invokeOrigin"));
 
             item.put("before_content", readMethod(jObject.getString("before_content")));
