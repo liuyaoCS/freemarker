@@ -26,6 +26,10 @@ class Util {
         String jsonStr = Util.readFile("ftl/config.json");
         JSONObject jsonObject=JSONObject.fromObject(jsonStr);
 
+        root.put("projectSrcPath", jsonObject.getString("projectSrcPath"));
+        root.put("projectPackageName", jsonObject.getString("projectPackageName"));
+        root.put("projectClassName", jsonObject.getString("projectClassName"));
+
         root.put("packageName", jsonObject.getString("packageName"));
         root.put("className", jsonObject.getString("className"));
         root.put("methodName", jsonObject.getString("methodName"));
@@ -49,6 +53,10 @@ class Util {
 
         String jsonStr = Util.readFile(args[1]);
         JSONObject jsonObject=JSONObject.fromObject(jsonStr);
+
+        root.put("projectSrcPath", jsonObject.getString("projectSrcPath"));
+        root.put("projectPackageName", jsonObject.getString("projectPackageName"));
+        root.put("projectClassName", jsonObject.getString("projectClassName"));
 
         root.put("packageName", jsonObject.getString("packageName"));
         root.put("className", jsonObject.getString("className"));

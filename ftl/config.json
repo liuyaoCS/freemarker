@@ -1,7 +1,10 @@
 {
-  "packageName": "com.ly.freemarker.gen",
-  "className": "TestHook",
-  "methodName": "test",
+  "projectSrcPath": "src/com/qihoo/msic/demopatch",
+  "projectPackageName": "com.qihoo.msic.demopatch",
+  "projectClassName":"TestHook",
+  "packageName": "com.ly.freemarker",
+  "className": "FmDemo",
+  "methodName": "main",
   "pTypes": [
     "Long",
     "String",

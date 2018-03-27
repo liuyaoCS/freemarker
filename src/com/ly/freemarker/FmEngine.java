@@ -14,7 +14,6 @@ import java.util.Map;
 
 public class FmEngine {
 
-    private static final String GENPATH = "src/com/ly/freemarker/gen";
 
     public static void main(String[] args) throws IOException, TemplateException {
 
@@ -34,11 +33,11 @@ public class FmEngine {
         Map<String, Object> root = Util.configData();
 
         //create output file
-        File dir = new File(GENPATH);
+        File dir = new File((String) root.get("projectSrcPath"));
         if(!dir.exists()){
             dir.mkdirs();
         }
-        OutputStream fos = new FileOutputStream( new File(dir, root.get("className")+".java"));
+        OutputStream fos = new FileOutputStream( new File(dir, root.get("projectClassName")+".java"));
         Writer out = new OutputStreamWriter(fos);
         temp.process(root, out);
 
