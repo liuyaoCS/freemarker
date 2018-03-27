@@ -30,12 +30,16 @@ public class FmEngineCmd {
         File file = new File(args[0]);
         configuration.setDirectoryForTemplateLoading(file);
 
-        new FmEngineCmd().genJavaHook(configuration,args);
+
+        //load template
+        Template temp0 = configuration.getTemplate("entry.ftl");
+        new FmEngineCmd().genJavaHook(configuration, args, temp0, "projectQarthName");
+
+        Template temp = configuration.getTemplate("hook.ftl");
+        new FmEngineCmd().genJavaHook(configuration, args, temp, "hookFileName");
     }
 
-    private void genJavaHook(Configuration cfg, String[] args) throws IOException, TemplateException{
-        //load template
-        Template temp = cfg.getTemplate("hook.ftl");
+    private void genJavaHook(Configuration cfg, String[] args,  Template temp, String outFileName) throws IOException, TemplateException{
 
         //Create the root hash
         Map<String, Object> root = Util.configData(args);
@@ -45,13 +49,13 @@ public class FmEngineCmd {
         if(!dir.exists()){
             dir.mkdirs();
         }
-        OutputStream fos = new FileOutputStream( new File(dir, root.get("projectClassName")+".java"));
+        OutputStream fos = new FileOutputStream( new File(dir, root.get(outFileName)+".java"));
         Writer out = new OutputStreamWriter(fos);
         temp.process(root, out);
 
         fos.flush();
         fos.close();
 
-        System.out.println("gen java code success!");
+        System.out.println("gen "+outFileName+" success!");
     }
 }

@@ -28,8 +28,9 @@ class Util {
 
         root.put("projectSrcPath", jsonObject.getString("projectSrcPath"));
         root.put("projectPackageName", jsonObject.getString("projectPackageName"));
-        root.put("projectClassName", jsonObject.getString("projectClassName"));
+        root.put("projectQarthName", jsonObject.getString("projectQarthName"));
 
+        root.put("hookFileName", jsonObject.getString("hookFileName"));
         root.put("packageName", jsonObject.getString("packageName"));
         root.put("className", jsonObject.getString("className"));
         root.put("methodName", jsonObject.getString("methodName"));
@@ -56,8 +57,9 @@ class Util {
 
         root.put("projectSrcPath", jsonObject.getString("projectSrcPath"));
         root.put("projectPackageName", jsonObject.getString("projectPackageName"));
-        root.put("projectClassName", jsonObject.getString("projectClassName"));
+        root.put("projectQarthName", jsonObject.getString("projectQarthName"));
 
+        root.put("hookFileName", jsonObject.getString("hookFileName"));
         root.put("packageName", jsonObject.getString("packageName"));
         root.put("className", jsonObject.getString("className"));
         root.put("methodName", jsonObject.getString("methodName"));

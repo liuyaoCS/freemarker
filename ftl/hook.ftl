@@ -5,9 +5,9 @@ import com.qihoo.qarth.QarthMethod;
 import java.lang.reflect.Member;
 
 
-public class ${projectClassName} extends QarthMethod {
+public class ${hookFileName} extends QarthMethod {
 
-    public ${projectClassName}() {
+    public ${hookFileName}() {
         QarthLog.e("QarthLog", "TestHook");
         className = "${packageName}.${className}";
         name = "${methodName}";

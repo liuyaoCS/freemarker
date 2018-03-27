@@ -22,13 +22,15 @@ public class FmEngine {
         File file = new File(Util.FTLPATH);
         configuration.setDirectoryForTemplateLoading(file);
 
-        new FmEngine().genJavaHook(configuration);
+        //load template
+        Template temp0 = configuration.getTemplate("entry.ftl");
+        new FmEngine().genJavaHook(configuration, temp0, "projectQarthName");
+
+        Template temp = configuration.getTemplate("hook.ftl");
+        new FmEngine().genJavaHook(configuration, temp, "hookFileName");
     }
 
-    private void genJavaHook(Configuration cfg) throws IOException, TemplateException{
-        //load template
-        Template temp = cfg.getTemplate("hook.ftl");
-
+    private void genJavaHook(Configuration cfg, Template temp, String outFileName) throws IOException, TemplateException{
         //Create the root hash
         Map<String, Object> root = Util.configData();
 
@@ -37,7 +39,7 @@ public class FmEngine {
         if(!dir.exists()){
             dir.mkdirs();
         }
-        OutputStream fos = new FileOutputStream( new File(dir, root.get("projectClassName")+".java"));
+        OutputStream fos = new FileOutputStream( new File(dir, root.get(outFileName)+".java"));
         Writer out = new OutputStreamWriter(fos);
         temp.process(root, out);
 

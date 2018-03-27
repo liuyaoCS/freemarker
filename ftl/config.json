@@ -1,14 +1,16 @@
 {
   "projectSrcPath": "src/com/qihoo/msic/demopatch",
   "projectPackageName": "com.qihoo.msic.demopatch",
-  "projectClassName":"TestHook",
+  "projectQarthName":"QarthEntry",
+
+  "hookFileName":"TestHook",
   "packageName": "com.ly.freemarker",
   "className": "FmDemo",
   "methodName": "main",
   "pTypes": [
-    "Long",
+    "long",
     "String",
-    "Integer"
+    "int"
   ],
   "invokeOrigin": true,
   "before_content": "before.method",
