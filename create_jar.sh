@@ -21,7 +21,8 @@ rm -rf *
 cp -r ../build/classes/java/main/com ./
 
 echo "***** remove unused classes"
-rm -rf com/ly/freemarker/gen/
+rm -rf com/qihoo/
+rm com/ly/freemarker/FmEngine.class
 
 echo "***** recreate  jar "
 
