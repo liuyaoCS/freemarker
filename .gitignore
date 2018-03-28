@@ -1,0 +1,11 @@
+/build
+/bin
+/publish
+.gradle
+.idea
+*.rar
+*.iml
+
+
+
+
